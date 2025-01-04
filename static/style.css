@@ -1,0 +1,191 @@
+/* General Styling */
+/* button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+} */
+button {
+  background-color: #007bff;
+  /* Blue color for buttons */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 15px;
+  /* Smaller padding for a compact button */
+  font-size: 15px;
+  height: 35px;
+  /* Adjust font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  float: right;
+  /* Align button to the right */
+}
+
+button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+}
+
+button:active {
+  background-color: #004080;
+  /* Even darker blue on click */
+}
+
+button:disabled {
+  background-color: #cccccc;
+  /* Gray for disabled state */
+  cursor: not-allowed;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  padding-bottom: 40px;
+  /* Add extra space at the bottom */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #555;
+}
+
+/* Form Styling */
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 98%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+/* Flash Messages */
+.flash-container {
+  margin-bottom: 20px;
+}
+
+.flash {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.flash.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.flash.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+  /* margin-top: 5px; */
+  margin-bottom: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  /* Allow columns to resize dynamically */
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+  /* Enable word wrapping for long text */
+  min-width: 150px;
+  /* Set a minimum width for columns */
+  font-size: 12px;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
+
+.section-separator {
+  margin-top: 50px;
+}
+
+button.delete {
+  background-color: #dc3545;
+  /* Red color for delete button */
+}
+
+button.delete:hover {
+  background-color: #c82333;
+  /* Darker red on hover */
+}
+
+button.delete:active {
+  background-color: #bd2130;
+  /* Even darker red on click */
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  /* Space between buttons */
+  justify-content: flex-end;
+  /* Align buttons to the right */
+  margin-top: 20px;
+  /* Add some space above the button group */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #777;
+}

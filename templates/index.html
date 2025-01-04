@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>ChirpStack Device Activator</title>
+  <link rel="stylesheet"
+        href="/static/style.css">
+  <script src="/static/app.js"
+          defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>ChirpStack Device Activator</h1>
+    <div class="section-separator">
+      <hr>
+    </div>
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+      {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- ChirpStack Settings -->
+    <h3>General ChirpStack Settings</h3>
+    <form method="post"
+          action="/settings">
+      <label>ChirpStack Server Address:</label>
+      <input type="text"
+             name="server"
+             value="{{ server }}"
+             placeholder="e.g., 192.168.1.51:8080"
+             required>
+
+      <label>API Token:</label>
+      <input type="text"
+             name="api_token"
+             value="{{ api_token }}"
+             placeholder="Enter your API Token"
+             required>
+
+      <label>Tenant ID:</label>
+      <input type="text"
+             name="tenant_id"
+             value="{{ tenant_id }}"
+             placeholder="Enter your Tenant ID"
+             required>
+
+      <button type="submit"
+              class="button">Save Settings</button>
+    </form>
+    <div class="section-separator">
+      <hr>
+    </div>
+    <!-- Upload Device Configuration -->
+    <h3>Upload Device Configuration</h3>
+    <form method="post"
+          action="/upload"
+          enctype="multipart/form-data">
+      <label>Upload Devices CSV:</label>
+      <input type="file"
+             name="file"
+             required>
+      <button type="submit"
+              class="button">Upload</button>
+    </form>
+    <div class="section-separator">
+      <hr>
+    </div>
+    <!-- Devices Table -->
+    <h3>Devices</h3>
+
+
+    {% if devices %}
+    <div class="table-container">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              {% for key in devices[0].keys() %}
+              <th>{{ key }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for device in devices %}
+            <tr>
+              {% for value in device.values() %}
+              <td>{{ value }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="button-group">
+      <form method="post"
+            action="/create_devices">
+        <button type="submit"
+                class="button">Create Above Table Devices</button>
+      </form>
+      <form method="post"
+            action="/delete_devices">
+        <button type="submit"
+                class="button delete">Delete Above Table Devices</button>
+      </form>
+    </div>
+
+
+    {% else %}
+    <p>No devices loaded yet.</p>
+    {% endif %}
+  </div>
+
+  <footer>
+    © 2024 ChirpStack Device Activator
+  </footer>
+</body>
+
+</html>
